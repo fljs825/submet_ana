@@ -1,3 +1,9 @@
+# Requirement
+
+  1. ROOT
+
+  2. LIBSUBMET
+
 # Manual 
 
   1. `git clone https://github.com/fljs825/submet_ana.git`
