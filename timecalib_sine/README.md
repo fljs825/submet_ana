@@ -6,8 +6,6 @@
 
   3. `./sineana.sh`
 
-  Then execute sineana.sh. (`./sineana.sh`)
-
 ## sineana.sh
 
   Method : `./sineana.sh`
