@@ -6,9 +6,9 @@
 #include <TString.h>
 #include <iostream>
 
-void process() {
+void process(TString input = "timingtree.root") {
 
-	TFile *file = new TFile("timingtree.root");
+	TFile *file = new TFile(input);
 
 	std::vector<std::vector<std::vector<double>>> t(4, std::vector<std::vector<double>>(25000, std::vector<double>(98)));
 
