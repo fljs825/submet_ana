@@ -44,6 +44,7 @@
   Ex : `root -l 'timingtree.cc("rb06_ch00010203_sine.dat", 15)'`
   
   **Input1 : Your ".dat" file** (Maybe binary)
+  
   **Input2 : Channel Mask** (15 for channel 0, 1, 2, 3)
 
   **Output : trees which contain sine pulses' timing (when it reaches their local minimum)**
