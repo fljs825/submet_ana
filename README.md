@@ -1,6 +1,33 @@
 # Manual 
 
-## timingtree.cc
+  Get `sineana.sh`, `timingtree.cc`, `process.cc`.
+
+  Then execute sineana.sh. (`./sineana.sh`)
+
+## sineana.sh
+
+  Method : `./sineana.sh`
+
+  Process : 
+
+    ---------------------------------------------------------------
+    Execute `timingtree.cc`
+  
+    1. Find minimum timing of sine waves.
+    
+    2. Save timing informations as a form of tree in ".root" files
+
+    ----------------------------------------------------------------
+    Execute `process.cc`
+    
+    3. Load ".root" files and calculate $\Delta t$ between channels
+
+    4. Save the result as $\Delta t$ histogram and ".png" file
+
+  Result : return $\Delta t$ distribution's image file (.png)
+  
+
+### timingtree.cc
 
   Method : root -l timingtree.cc("*your_dat_file.dat"*, *intChMask*)
 
@@ -11,7 +38,7 @@
 
   **Output : trees which contain sine pulses' timing (when it reaches their local minimum)**
 
-## process.cc
+### process.cc
 
   Method : root -l process.cc("*your_rootfile_name.root*")
 
