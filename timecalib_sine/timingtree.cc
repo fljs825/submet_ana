@@ -252,4 +252,3 @@ void timingtree(const char* input = "rb06_ch00010203_sine.dat", unsigned int int
 	cout << "Tree is constructed" << endl;
 
 }
-
