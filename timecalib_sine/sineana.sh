@@ -1,6 +1,6 @@
 #!/bin/bash
 
-root -l -b -q "timingtree.cc" && echo "timingtree.cc is completed"
+root -l -b -q "timingtree.cc"
 wait
 hadd -f timingtree.root timingtree_ch*
 #rm timingtree_ch*
