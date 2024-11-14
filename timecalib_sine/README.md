@@ -1,6 +1,10 @@
 # Manual 
 
-  Get `sineana.sh`, `timingtree.cc`, `process.cc`.
+  1. `git clone https://github.com/fljs825/submet_ana.git`
+
+  2. `cd timecalib_sine` (Please let me know if there is a way to clone this directory only)
+
+  3. `./sineana.sh`
 
   Then execute sineana.sh. (`./sineana.sh`)
 
