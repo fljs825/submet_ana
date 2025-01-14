@@ -55,4 +55,22 @@ returns timing at $m - 5\sigma$
 
 returns timing at $m + 5\sigma$
 
+### `bool bt.isBeamTiming(time)`
+
+If input time is within the beam time window, returns `true`. Else, returns `false`
+
+Example :
+
+- Input : 
+
+  ```
+  time = 350; // Let t = 30 is within the beam time window
+  cout << bt.isBeamTiming(time); << endl;
+  ```
+
+- Output :
+
+  ```
+  1
+  ```
 
