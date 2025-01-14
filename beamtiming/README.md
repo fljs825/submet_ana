@@ -49,11 +49,10 @@ Gives the number of the first beam's large pulses.
 
 ### `std::vector<double> bt.GetArisings();`
 
-returns -5 $\sigma$
+returns timing at $m - 5\sigma$
 
 ### `std::vector<double> bt.GetFallings();`
 
+returns timing at $m + 5\sigma$
 
-### `std::vector<double> BeamTiming::fallings`
-### `std::vector<double> BeamTiming::Arisings`
-### 
+
