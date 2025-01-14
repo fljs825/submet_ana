@@ -7,11 +7,17 @@
 ## Methods
 ### Class Declaration : BeamTiming bt;
 ### bt.GetBeamTimings(TString dir, bool figures = false, TString runname);
-`TString dir` : path to the directory for corresponding run. example : `/path/to/r00001`
+`TString dir` : path to the directory for corresponding run
 
-`bool figures` : choose to save beam finding results as a png file.
+`bool figures` : choose to save beam finding results as a png file. true : save figures. false : not save figures.
 
 `TString runname` : set the title of a png file.
+
+Example : 
+```
+BeamTiming bt;
+bt.GetBeamTimings("/path/to/r00001/", true, "r00001");
+```
 ### `std::vector<double> bt.GetTimings();`
 ### `std::vector<double> bt.GetCounts();`
 ### `std::vector<double> bt.GetArisings();`
