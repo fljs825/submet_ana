@@ -64,7 +64,7 @@ Example :
 - Input : 
 
   ```
-  time = 350; // Let t = 30 is within the beam time window
+  time = 350; // Let t = 350 is within the beam time window
   cout << bt.isBeamTiming(time); << endl;
   ```
 
