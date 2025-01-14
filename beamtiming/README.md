@@ -37,6 +37,13 @@ BeamTiming bt;
 bt.GetBeamTimings("/path/to/r00001/", 1, 1, 5, false);
 ```
 
+* GetBeamTimings() operates without some missing arguments.
+Example :
+```
+BeamTiming bt;
+bt.GetBeamTimings("/path/to/r00001"); // Default filetype : 1, threshold : 1, width : 5, save figures : false
+```
+
 - ### `std::vector<double> bt.GetTimings();`
 
   - returns peak timings of the beams as a vector.
