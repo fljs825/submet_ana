@@ -7,7 +7,7 @@
 # Description
 ## Methods
 ### Class Declaration : BeamTiming bt;
-- ### `void bt.GetBeamTimings(TString dir, const int filetype = 1, const int threshold = 1, const int width = 5, bool figures = false);`
+- ### `void bt.GetBeamTimings(TString dir, const int filetype = 1, const int threshold = 1, bool figures = false);`
 
 -  `void bt.GetBeamTimings(...) find the beam timings.
 
@@ -21,15 +21,11 @@
 
   - `const int threshold` : adjust beam finding threshold. Recommended : 0.5 < threshold < 1.5.
 
-  - `const int width` : adjust beam duration. default beam duration = mean +- 5 * sigma. This argument adjusts n such that beam duration = mean +- n * sigma.
-
   - `bool figures` : choose to save beam finding results as a png file. 
 
     - `bool figures = true` : save figures. 
 
     - `bool figures = false` : not save figures.
-
-  - `TString runname` : set the title of a png file.
 
 Example : 
 ```
