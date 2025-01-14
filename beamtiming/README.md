@@ -30,7 +30,7 @@
 Example : 
 ```
 BeamTiming bt;
-bt.GetBeamTimings("/path/to/r00001/", 1, 1, 5, false);
+bt.GetBeamTimings("/path/to/r00001/", 1, 1, false);
 ```
 
 * GetBeamTimings() operates without some missing arguments.
