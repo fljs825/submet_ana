@@ -5,5 +5,5 @@
 2. `root test_main.root`
 # Description
 ## Objects
-### 1. BeamTiming::fallings 
-`std::vector<double>`
+### `std::vector<double> BeamTiming::fallings`
+### `std::vector<double> BeamTiming::Arisings`
