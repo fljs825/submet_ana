@@ -21,7 +21,7 @@ Find beam timings.
 
   - `const int threshold` : adjust beam finding threshold. Recommended : 0.5 < threshold < 1.5.
 
-  - `const int width` : adjust beam duration. default beam duration = mean +- 5 * sigma. This argument adjust n such that beam duration = mean +- n * sigma.
+  - `const int width` : adjust beam duration. default beam duration = mean +- 5 * sigma. This argument adjusts n such that beam duration = mean +- n * sigma.
 
   - `bool figures` : choose to save beam finding results as a png file. 
 
