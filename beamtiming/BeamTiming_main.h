@@ -21,7 +21,14 @@ public:
     std::vector<double> GetArisings() const;
     std::vector<double> GetFallings() const;
     bool isBeamTiming(double time);
-    void GetBeamTimings(TString dir, bool figures, TString image);
+    //void GetBeamTimings(TString dir);
+    //void GetBeamTimings(TString dir, int filetype = 0, int threshold = 1, bool figures = false);
+    void GetBeamTimings(TString);
+    void GetBeamTimings(TString, const int, bool);
+    void GetBeamTimings(TString, const int);
+    void GetBeamTimings(TString, const int, const int);
+    void GetBeamTimings(TString, const int, const int, const int);
+    void GetBeamTimings(TString, const int, const int, const int, bool);
 };
 
 #endif
