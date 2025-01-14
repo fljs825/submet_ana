@@ -65,16 +65,16 @@ If input time is within the beam time window, returns `true`. Else, returns `fal
 
 Example :
 
-- Input : 
+  - Input : 
 
-  ```
-  time = 350; // Let t = 350 is within the beam time window
-  cout << bt.isBeamTiming(time); << endl;
-  ```
+    ```
+    time = 350; // Let t = 350 is within the beam time window
+    cout << bt.isBeamTiming(time); << endl;
+    ```
 
-- Output :
+  - Output :
 
-  ```
-  1
-  ```
+    ```
+    1
+    ```
 
