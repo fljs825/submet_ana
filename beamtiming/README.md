@@ -61,14 +61,14 @@ returns timing at $m + 5\sigma$
 
 - ### `bool bt.isBeamTiming(time)`
 
-If input time is within the beam time window, returns `true`. Else, returns `false`
+If input time is in the beam time window, returns `true`. Else, returns `false`
 
 Example :
 
   - Input : 
 
     ```
-    time = 350; // Let t = 350 is within the beam time window
+    time = 350; // Let t = 350 is in the beam time window
     cout << bt.isBeamTiming(time); << endl;
     ```
 
