@@ -10,9 +10,9 @@ void test_main() {
     gSystem->Load("BeamTiming_main.C");
 
 	BeamTiming bt;
-	for (int irun = 10; irun < 30; irun++) {
+	for (int irun = 40; irun <= 56; irun++) {
 		TString dir = Form("/data3/submet_exp/e00000/tree/main/r000%i", irun);
-		bt.GetBeamTimings(dir, 0, Form("r000%i", irun));
+		bt.GetBeamTimings(dir, 1, Form("r000%i", irun));
 		std::cout << bt.GetNbeams() << " beams are found" << std::endl;
 
 		std::vector<double> timings = bt.GetTimings();
@@ -28,6 +28,11 @@ void test_main() {
 		// Check "isBeamTiming" works well
 		////////////////////////////////////////////////
 		TFile *file = new TFile(Form("%s/b1.root", dir.Data()), "READ");
+		if ( !file || file->IsZombie() ) { 
+			std::cerr << "Error: Cannot open file: " << Form("%s/b1.root", dir.Data()) << std::endl;
+			continue;
+		}
+
 		TTree *tree = (TTree *) file -> Get("ch0/pulse_ch0");
 
 		int n = tree -> GetEntries();

@@ -61,6 +61,8 @@ void BeamTiming::GetBeamTimings(TString dir, bool figures = false, TString image
 		//for (int ibd = 1; ibd <= 10; ibd++) {
 
 		TFile *file = new TFile(Form("%s/b%i.root", dir.Data(), ibd));
+		if ( file -> IsZombie() ) { cout << "Wrong filename" << endl; continue; }
+
 		//TFile *file = new TFile(Form("%s/board%i.root", dir.Data(), ibd));
 
 		for (int ich = 0; ich < 16; ich++) {
