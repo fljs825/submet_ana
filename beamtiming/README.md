@@ -34,7 +34,7 @@ Find beam timings.
 Example : 
 ```
 BeamTiming bt;
-bt.GetBeamTimings("/path/to/r00001/", true, "r00001");
+bt.GetBeamTimings("/path/to/r00001/", 1, 1, 5, false);
 ```
 
 - ### `std::vector<double> bt.GetTimings();`
