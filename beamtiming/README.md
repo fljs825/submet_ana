@@ -7,6 +7,9 @@
 ## Methods
 ### Class Declaration : BeamTiming bt;
 - ### `bt.GetBeamTimings(TString dir, bool figures = false, TString runname);`
+
+Find beam timings.
+
   - `TString dir` : path to the directory for a corresponding run
 
   - `bool figures` : choose to save beam finding results as a png file. 
