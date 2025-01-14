@@ -9,7 +9,11 @@
 ### bt.GetBeamTimings(TString dir, bool figures = false, TString runname);
 `TString dir` : path to the directory for a corresponding run
 
-`bool figures` : choose to save beam finding results as a png file. true : save figures. false : not save figures.
+`bool figures` : choose to save beam finding results as a png file. 
+
+true : save figures. 
+
+false : not save figures.
 
 `TString runname` : set the title of a png file.
 
