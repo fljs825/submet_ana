@@ -11,9 +11,9 @@
 
 `bool figures` : choose to save beam finding results as a png file. 
 
-true : save figures. 
+- `bool figures = true` : save figures. 
 
-false : not save figures.
+- `bool figures false` : not save figures.
 
 `TString runname` : set the title of a png file.
 
