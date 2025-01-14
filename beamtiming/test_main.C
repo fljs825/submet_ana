@@ -49,18 +49,17 @@ void test_main() {
 		////////////////////////////////////////////////
 		// Check "isBeamTiming" works well
 		////////////////////////////////////////////////
-		TFile *file = new TFile(Form("%s/b1.root", dir.Data()), "READ");
 		if ( !file || file->IsZombie() ) { 
 			std::cerr << "Error: Cannot open file: " << Form("%s/b1.root", dir.Data()) << std::endl;
 			continue;
 		}
 
+		TFile *file = new TFile(Form("%s/b1.root", dir.Data()), "READ");
 		TTree *tree = (TTree *) file -> Get("ch0/pulse_ch0");
-
-		int n = tree -> GetEntries();
-
-		double istime, zctime1;
 		tree -> SetBranchAddress("istime", &istime);
+		
+		int n = tree -> GetEntries();
+		double istime, zctime1;
 
 		TCanvas *c1 = new TCanvas("c1", "c1", 800, 600);
 		TH1D *h1 = new TH1D("h1", "h1", 100, 0, 4096);

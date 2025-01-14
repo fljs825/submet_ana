@@ -12,6 +12,7 @@ private:
     std::vector<double> arisings;
     std::vector<double> fallings;
     int nBeams;
+	double nsigma;
 
 public:
     BeamTiming();
@@ -21,14 +22,14 @@ public:
     std::vector<double> GetArisings() const;
     std::vector<double> GetFallings() const;
     bool isBeamTiming(double time);
-    //void GetBeamTimings(TString dir);
-    //void GetBeamTimings(TString dir, int filetype = 0, int threshold = 1, bool figures = false);
-    void GetBeamTimings(TString);
-    void GetBeamTimings(TString, const int, bool);
-    void GetBeamTimings(TString, const int);
-    void GetBeamTimings(TString, const int, const int);
-    void GetBeamTimings(TString, const int, const int, const int);
-    void GetBeamTimings(TString, const int, const int, const int, bool);
+	void SetNsigma(double);
+	//void SetThreshold(double);
+	void GetBeamTimings(TString);
+	void GetBeamTimings(TString, bool);
+	void GetBeamTimings(TString, const int);
+	void GetBeamTimings(TString, const int, bool);
+	void GetBeamTimings(TString, const int, double);
+    void GetBeamTimings(TString, const int, double, bool);
 };
 
 #endif

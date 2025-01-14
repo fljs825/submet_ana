@@ -10,8 +10,10 @@ void test_old() {
     gSystem->Load("BeamTiming_main.C");
 
 	BeamTiming bt;
-	for (int irun = 3; irun <= 3; irun++) {
-		TString dir = Form("/Users/fljs825/research/submet/beamTiming/r0000%i", irun);
+	for (int irun = 8; irun <= 8; irun++) {
+		TString dir;
+		if (irun < 10) { dir =  Form("/Users/fljs825/research/submet/beamTiming/r0000%i", irun); }
+		if (irun >= 10) { dir =  Form("/Users/fljs825/research/submet/beamTiming/r000%i", irun); }
 
 		////////////////////////////////////////////////////////////////////////////////////////////
 		// GetBeamTimings(TString directory, const int filetype, const int threshold, bool image);
@@ -22,8 +24,8 @@ void test_old() {
 		// bool image == true : save beam timing finder result as a png file.					  
 		// bool image == false : not save beam timing finder result								  
 		////////////////////////////////////////////////////////////////////////////////////////////
-		bt.GetBeamTimings(dir, 0, 1, 5, false); 
-	
+		bt.SetNsigma(5);	
+		bt.GetBeamTimings(dir, 0, 1, true); 
 		////////////////////////////////////////////////////////////////////////////////////////////
 		// bt.GetNbeams() returns the number of discovered beams.
 		////////////////////////////////////////////////////////////////////////////////////////////
@@ -38,7 +40,9 @@ void test_old() {
 		std::vector<double> fallings = bt.GetFallings();
 
 		for (int i = 0; i < bt.GetNbeams(); i++) {
-			cout << "nBeams : " << bt.GetNbeams() << " | counts : " << counts . at(i) << " | arising : " << arisings . at(i) << " | peak timing : " << timings . at(i)  << " | falling : " << fallings.at(i)<< endl;
+			cout << "iBeams : " << i << " | counts : " << counts . at(i) << " | arising : " << 
+				arisings . at(i) << " | peak timing : " << timings . at(i)  << " | falling : "
+				<< fallings.at(i)<< endl;
 		}
 
 		////////////////////////////////////////////////

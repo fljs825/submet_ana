@@ -7,7 +7,7 @@
 #include <TSystem.h>
 #include <TROOT.h>
 
-BeamTiming::BeamTiming() : nBeams(0) {}
+BeamTiming::BeamTiming() : nBeams(0), nsigma(5.0) {}
 
 int BeamTiming::GetNbeams() const {
     return nBeams;
@@ -19,6 +19,10 @@ std::vector<double> BeamTiming::GetTimings() const {
 
 std::vector<double> BeamTiming::GetCounts() const {
 	return counts;
+}
+
+void BeamTiming::SetNsigma(double nsigma2) {
+	nsigma = nsigma2;
 }
 
 std::vector<double> BeamTiming::GetArisings() const {
@@ -39,12 +43,7 @@ bool BeamTiming::isBeamTiming(double time) {
 }
 
 //void BeamTiming::GetBeamTimings(TString dir, const int filetype = 0, const int threshold = 1, bool figures = false) {
-void BeamTiming::GetBeamTimings(TString dir, const int filetype, const int threshold, const int width, bool figures) {
-
-	//gROOT -> SetBatch(kTRUE);
-
-	gSystem->Load("libCore");
-	gSystem->Load("libTree.so");
+void BeamTiming::GetBeamTimings(TString dir, const int filetype, double threshold, bool figures) {
 
 	timings . clear();
 	TString cut;
@@ -69,7 +68,7 @@ void BeamTiming::GetBeamTimings(TString dir, const int filetype, const int thres
 		if ( filetype == 1 ) {
 			file = new TFile(Form("%s/b%i.root", dir.Data(), ibd));
 		}	
-		if ( file -> IsZombie() ) { cout << "Wrong filename" << endl; continue; }
+		if ( file -> IsZombie() ) { std::cerr << "Wrong filename" << endl; continue; }
 
 		for (int ich = 0; ich < 16; ich++) {
 			TTree *tree;
@@ -157,8 +156,8 @@ void BeamTiming::GetBeamTimings(TString dir, const int filetype, const int thres
 		h1 -> Fit("f1", "RQ+");
 		double mean = f1 -> GetParameter(1);
 		double sigma = f1 -> GetParameter(2);
-		double start = mean - width * sigma;
-		double end = mean + width * sigma;
+		double start = mean - nsigma * sigma;
+		double end = mean + nsigma * sigma;
 
 		arisings.push_back(start);
 		fallings.push_back(end);
@@ -181,30 +180,35 @@ void BeamTiming::GetBeamTimings(TString dir, const int filetype, const int thres
 	c1 -> Update();
 	
 	if ( figures ) { c1 -> SaveAs(Form("./beamtiming_%s.png", rundir.Data()), "png"); } 
-	
+
+	for (int i = 0; i < timings . size(); i++) {
+		if (timings . at(i) < 0 || arisings . at(i) < 0 || fallings . at(i) < 0 || timings . at(i) > 4096 || arisings . at(i) > 4500 || fallings . at(i) > 4500) { std::cerr << "Not enough large pulses are collected" << std::endl; }
+
+	}
 	delete c1;
 	delete h1;
 	delete h1_diff;
 	delete h2;
 }
 
-void BeamTiming::GetBeamTimings(TString dir, const int filetype, const int threshold, const int width) {
-	GetBeamTimings(dir, filetype, threshold, width, false);
-}
-
-void BeamTiming::GetBeamTimings(TString dir, const int filetype, const int threshold) {
-	GetBeamTimings(dir, filetype, threshold, 5, false);
+void BeamTiming::GetBeamTimings(TString dir, const int filetype, double threshold) {
+	GetBeamTimings(dir, filetype, threshold, false);
 }
 
 void BeamTiming::GetBeamTimings(TString dir, const int filetype, bool figures) {
-	GetBeamTimings(dir, filetype, 1, 5, figures);
+	GetBeamTimings(dir, filetype, 1, figures);
 }
 
 void BeamTiming::GetBeamTimings(TString dir, const int filetype) {
-	GetBeamTimings(dir, filetype, 1, 5, false);
+	GetBeamTimings(dir, filetype, 1, false);
+}
+
+void BeamTiming::GetBeamTimings(TString dir, bool figures) {
+	GetBeamTimings(dir, 1, 1, figures);
 }
 
 void BeamTiming::GetBeamTimings(TString dir) {
-	GetBeamTimings(dir, 1, 1, 5, false);
+	GetBeamTimings(dir, 1, 1, false);
 };
+
 
