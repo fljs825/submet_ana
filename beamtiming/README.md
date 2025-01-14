@@ -7,9 +7,9 @@
 # Description
 ## Methods
 ### Class Declaration : BeamTiming bt;
-- ### `bt.GetBeamTimings(TString dir, const int filetype = 1, const int threshold = 1, const int width = 5, bool figures = false);`
+- ### `void bt.GetBeamTimings(TString dir, const int filetype = 1, const int threshold = 1, const int width = 5, bool figures = false);`
 
-Find beam timings.
+-  `void bt.GetBeamTimings(...) find the beam timings.
 
   - `TString dir` : path to the directory for a corresponding run
 
