@@ -7,11 +7,21 @@
 # Description
 ## Methods
 ### Class Declaration : BeamTiming bt;
-- ### `bt.GetBeamTimings(TString dir, bool figures = false, TString runname);`
+- ### `bt.GetBeamTimings(TString dir, const int filetype = 1, const int threshold = 1, const int width = 5, bool figures = false);`
 
 Find beam timings.
 
   - `TString dir` : path to the directory for a corresponding run
+
+  - `const int filetype` :
+
+    - `const int filetype = 0` : tree structure : `ch0/pul_ch0`. non-istime version.
+   
+    - `const int filetype = 1` : tree structure : `ch0/pulse_ch0`. istime-valid version.
+
+  - `const int threshold` : adjust beam finding threshold. Recommended : 0.5 < threshold < 1.5.
+
+  - `const int width` : adjust beam duration. default beam duration = mean +- 5 * sigma. This argument adjust n such that beam duration = mean +- n * sigma.
 
   - `bool figures` : choose to save beam finding results as a png file. 
 
