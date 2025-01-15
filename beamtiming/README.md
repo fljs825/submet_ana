@@ -15,9 +15,11 @@
 
   - `const int filetype` :
 
-    - `const int filetype = 0` : tree structure : `ch0/pul_ch0`. non-istime version.
+    - `const int filetype = 0` : For the old version trees. (`istime` is invalid so that used `zctime1` to find pulse timings)
    
-    - `const int filetype = 1` : tree structure : `ch0/pulse_ch0`. istime-valid version.
+    - `const int filetype = 1` : For the current version pules-based trees. `istime` is valid.
+   
+    - `const int filetype = 2` : For the current version event-based trees.
 
   - `const int threshold` : adjust beam finding threshold. Recommended : 0.5 < threshold < 1.5.
 
