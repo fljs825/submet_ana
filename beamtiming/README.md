@@ -9,7 +9,7 @@
 ### Class Declaration : BeamTiming bt;
 - ### `void bt.GetBeamTimings(TString dir, const int filetype = 1, double threshold = 1, bool figures = false);`
 
--  `void bt.GetBeamTimings(...) find the beam timings.
+-  `void bt.GetBeamTimings(...) searches the beam timings.
 
   - `TString dir` : path to the directory for a corresponding run
 
